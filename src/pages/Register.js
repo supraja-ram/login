@@ -94,42 +94,43 @@ const Register = () => {
             <main>
                   {loading && <div><Spinner/></div>}
                   <div>
-                  <h1>SIGN UP</h1>
                   {error && <div>{error}</div>}
-                  <form onSubmit={submitHandler}>
-                        
-                        <div>
-                              <label>Name:     </label>
+                  <form className = "login-form" onSubmit={submitHandler}> 
+                        <h1>SIGN UP</h1>
+                        <div className = 'form-group'>
                               <input type="text" onChange={nameChangeHandler} value={name}></input>
-                              {nameError && <small>{nameError}</small>}
+                              <label>Name:     </label>
+                              {nameError && <small  className = 'error-alert'>{nameError}</small>}
                         </div>
-                        <div>
-                              <label>Email</label>
+                        <div className = 'form-group'>
                               <input type="text" onChange={emailChangeHandler} value={email}></input>
-                              {emailError && <small>{emailError}</small>}
+                              <label>Email</label>
+                              {emailError && <small  className = 'error-alert'>{emailError}</small>}
                         </div>
-                        <div>
-                              <label>Password</label>
+                        <div className = 'form-group'>
                               <input type="password" onChange={passwordChangeHandler} value={password}></input>
-                              {passwordError && <small>{passwordError}</small>}
+                              <label>Password</label>
+                              {passwordError && <small  className = 'error-alert'>{passwordError}</small>}
                         </div>
-                        <div>
-                              <label>Confirm Password</label>
+                        <div className = 'form-group'>
                               <input type="password" onChange={confirmPasswordHandler} value={confirmPassword}></input>
-                              {confirmPasswordError && <small>{confirmPasswordError}</small>}
+                              <label>Confirm Password</label>
+                              {confirmPasswordError && <small  className = 'error-alert'>{confirmPasswordError}</small>}
                         </div>
-                        <div>
-                              <label>Company</label>
+                        <div className = 'form-group'>
                               <input type="text" onChange={(companyChangeHandler)} value={company}></input>
-                              {companyError && <small>{companyError}</small>}
+                              <label>Company</label>
+                              {companyError && <small  className = 'error-alert'>{companyError}</small>}
                         </div>     
-                        <div>
-                              <label>Phone</label>
+                        <div className = 'form-group'>
                               <input type="text" onChange={(phoneChangeHandler)} value={phone}></input>
-                              {phoneError && <small>{phoneError}</small>}
+                              <label>Phone</label>
+                              {phoneError && <small  className = 'error-alert'>{phoneError}</small>}
                         </div>        
-                        <button type="submit">SIGN UP</button>
-                        <Link to = '/login'>Already have an account? Login here</Link>
+                        <button  className = 'btn' type="submit">SIGN UP</button>
+                              <Link style={{ textDecoration: 'none' }} to='/login'><span className="redirect-link">Already have an account? Login here</span></Link>
+                              
+                  {loading && <div><Spinner/></div>}
             </form>
                   </div>
             </main>

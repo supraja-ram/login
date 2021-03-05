@@ -4,12 +4,14 @@ import ErrorPage from './pages/ErrorPage';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Home from './pages/Home';
+import Navbar from './components/Navbar';
 
 
 function App() {
   return (
     <BrowserRouter>
-    <div className="App"> 
+      <div className="App"> 
+      <Navbar/>
       <Switch>
           <Route exact path="/"><Home /></Route>
           <Route exact path="/login"><Login /></Route>

@@ -58,25 +58,24 @@ const Login = () => {
       }
 
       return (
-            <main>
-                  {loading && <div><Spinner/></div>}
+            <main className = "login">
                   <div>
-                  <h1>LOGIN</h1>
-                  {error && <div>{error}</div>}
-                  <form onSubmit = {submitHandler}>
-                        <div>
-                              <label>Email</label>
-                                    <input type="text" onChange={emailChangeHandler} value={email}></input>
-                                    {emailError && <small>{emailError}</small>}
+                  {error && <div className = 'error-alert'>{error}</div>}
+                        <form className="login-form" onSubmit={submitHandler}>        
+                        <h1>LOGIN</h1>
+                        <div className = 'form-group'>
+                                    <input type="text" onChange={emailChangeHandler} value={email}></input><label>Email</label>
+                                    {emailError && <small className = 'error-alert'>{emailError}</small>}
                         </div>
-                        <div>
-                              <label>Password</label>
-                                    <input type= {inputType} onChange={passwordChangeHandler} value={password}></input>
-                                    <button type='button' onClick={(e)=>setVisibility(!visibility)}>{visibility ? <AiFillEye/> : <AiFillEyeInvisible/>}</button>
-                                    {passwordError && <small>{passwordError}</small>}
+                        <div className = 'form-group'>
+                                    <input type={inputType} onChange={passwordChangeHandler} value={password}></input>
+                                    <label>Password</label>
+                                    <span className = 'icon' onClick={(e)=>setVisibility(!visibility)}>{visibility ? <AiFillEye/> : <AiFillEyeInvisible/>}</span>
+                                    {passwordError && <small className = 'error-alert'>{passwordError}</small>}
                         </div>
-                        <button type="submit">LOGIN</button>
-                        <Link to = '/register'>Don't have an account ? Sign Up</Link>
+                        <button className = 'btn' type="submit">LOGIN</button>
+                              <Link to='/register' style={{ textDecoration: 'none' }} ><span className="redirect-link">Don't have an account ? Sign Up</span></Link>            
+                  {loading && <div><Spinner/></div>}
                   </form></div>
             </main>
       )

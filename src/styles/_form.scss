@@ -1,0 +1,80 @@
+.login-form {
+  width: 40%;
+  margin: auto;
+  border: 2px solid $text-primary;
+  padding: 2rem 5rem 1.5rem;
+  box-shadow: 7px 7px 0 $text-primary;
+  h1 {
+    margin-bottom: 3rem;
+  }
+  .form-group {
+    position: relative;
+    margin: 2rem 0 3rem;
+    label {
+      display: block;
+      position: absolute;
+      top: -13px;
+      left: 0;
+      color: $text-secondary;
+      transition: 0.2s all;
+      font-weight: 700;
+    }
+    input {
+      width: 90%;
+      background: transparent;
+      border: none;
+      border-bottom: 2px solid $hover;
+      font-family: inherit;
+      outline: 0;
+      transition: all 0.3s ease;
+      font-weight: 700;
+      font-size: 1.3rem;
+      &:focus {
+        border-color: $info;
+        & + label {
+          color: $text-primary;
+          transform: translateY(-20px);
+        }
+      }
+    }
+    .icon {
+      font-size: 1.5rem;
+    }
+  }
+}
+
+.redirect-link {
+  margin: 1rem 0;
+  font-weight: 700;
+  color: $text-primary;
+  margin-left: 2rem;
+}
+
+@media (max-width: 1000px) {
+  .login-form {
+    width: 70%;
+  }
+  .redirect-link {
+    display: block;
+    margin: 1rem 0 0;
+  }
+}
+
+@media (max-width: 700px) {
+  .login-form {
+    width: 95%;
+    padding: 1.5rem;
+    label {
+      font-size: 0.8rem;
+    }
+    input {
+      font-size: 1rem;
+    }
+  }
+}
+
+@media (max-width: 400px) {
+  .login-form {
+    padding: 0.5rem;
+  }
+}
