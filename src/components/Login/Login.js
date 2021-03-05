@@ -1,9 +1,18 @@
 import React, { useState, useEffect} from 'react'
 import {useHistory, Link} from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
-import { login } from '../actions/userActions'
-import Spinner from '../components/Spinner'
+import { login } from '../../actions/userActions'
+import Spinner from '../Spinner'
 import { AiFillEyeInvisible, AiFillEye } from 'react-icons/ai'
+
+export const regex = "^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$"
+
+export const validateLoginInput = (email, password, regex) => {
+      if (!email.match(regex) || email.trim().length === 0 || password.trim().length < 6) {
+            return false;
+      }
+      return true;
+}
 
 const Login = () => {
       const [email, setEmail] = useState('')
@@ -26,9 +35,6 @@ const Login = () => {
             }
       }, [history, userInfo])
 
-      
-      const regex = "^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$"
-
       const emailChangeHandler = (e) => {
             setEmail(e.target.value)
             setEmailError('')
@@ -41,7 +47,7 @@ const Login = () => {
 
       const submitHandler = (e) => {
             e.preventDefault()
-            if (email.trim().length > 0 && password.trim().length > 0 && email.match(regex)) {
+            if (validateLoginInput(email, password, regex)) {
                   dispatch(login(email, password))
             }
             else {
@@ -54,11 +60,14 @@ const Login = () => {
                   if (password.trim().length === 0) {
                         setPasswordError("Please enter your password")
                   }
+                  else if (password.trim().length < 6) {
+                        setPasswordError("Password should have atleast 6 characters")
+                  }
             }
       }
 
       return (
-            <main className = "login">
+            <div className = "login">
                   <div>
                   {error && <div className = 'error-alert'>{error}</div>}
                         <form className="login-form" onSubmit={submitHandler}>        
@@ -77,7 +86,7 @@ const Login = () => {
                               <Link to='/register' style={{ textDecoration: 'none' }} ><span className="redirect-link">Don't have an account ? Sign Up</span></Link>            
                   {loading && <div><Spinner/></div>}
                   </form></div>
-            </main>
+            </div>
       )
 }
 

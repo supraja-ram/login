@@ -4,7 +4,7 @@ import errorSVG from '../error.svg'
 
 const ErrorPage = ({message = 'Page not fround'}) => {
       return (
-            <div>
+            <div className = 'error-page'>
                   <img src={errorSVG} alt="error-svg" />
                   <h1>{message}</h1>
                   <Link to = "/">Back to Home Page</Link>

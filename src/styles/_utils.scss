@@ -35,6 +35,13 @@
   font-weight: 700;
 }
 
+.error-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 @media (max-width: 1000px) {
   .btn {
     padding: 0.5rem 1.2rem;
