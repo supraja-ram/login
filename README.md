@@ -17,7 +17,7 @@ npm install
 3. ENV variables
 
 ```bash
-REACT_APP_BASEURL= mock api url
+REACT_APP_BASEURL= your API endpoint
 ```
 
 4. Run
