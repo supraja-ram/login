@@ -1,11 +1,11 @@
 .login-form {
-  width: 50%;
+  width: 55%;
   margin: auto;
   border: 2px solid $text-primary;
-  padding: 1rem 4rem;
-  box-shadow: 7px 7px 0 $text-primary;
+  padding: 1.5rem 4rem;
+  box-shadow: 5px 5px 0 $text-primary;
   h1 {
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
   }
   .form-group {
     position: relative;
@@ -28,7 +28,7 @@
       outline: 0;
       transition: all 0.3s ease;
       font-weight: 700;
-      font-size: 1.3rem;
+      font-size: 1.2rem;
       &:focus {
         border-color: $info;
         & + label {
@@ -62,7 +62,7 @@
 
 @media (max-width: 700px) {
   .login-form {
-    width: 95%;
+    width: 90%;
     padding: 1.5rem;
     label {
       font-size: 0.8rem;
